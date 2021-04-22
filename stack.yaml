@@ -1,4 +1,4 @@
-resolver: lts-12.14
+resolver: lts-17.9
 packages:
   - libssh2/
   - libssh2-conduit/

@@ -43,6 +43,9 @@ open srcport = do
   bind sock $ SockAddrInet6 srcport 0 iN6ADDR_ANY 0
   listen sock 5
   return sock
+    where
+      iN6ADDR_ANY :: HostAddress6
+      iN6ADDR_ANY = (0,0,0,0)
 
 handleConn :: String -> String -> PortNumber -> PortNumber -> Socket -> IO ()
 handleConn login host sshport dstport conn = ssh login host (fromIntegral sshport) $ \session -> do
